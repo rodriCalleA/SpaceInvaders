@@ -1,0 +1,56 @@
+<div class="container">
+    <div class="background">
+        <img id="backgroundIMG" [ngClass]="backgroundIMGAnimation" class="backgroundIMG" src="../../assets/imgs/wave.svg" alt="Wave">
+        <img id="backgroundIMGInverted" [ngClass]="backgroundIMGInvertedAnimation" class="backgroundIMGInveted" src="../../assets/imgs/waveInverted.svg" alt="Wave">
+    </div>
+
+    <div class="startMenu" id="start-menu" [ngClass]="startMenuAnimation" *ngIf="startMenuVisible">
+        <h1>Space Invaders</h1>
+        <button id="btnStart" (click)="startGame()" value="Login" class="button-82-pushable">
+            <span class="button-82-shadow"></span>
+            <span class="button-82-edge"></span>
+            <span id="bntSaveTEXT" class="button-82-front text">
+                Start
+            </span>
+        </button>
+    </div>
+
+    <div id="gameOver" class="modal" *ngIf="gameOverView">
+        <div class="modal-content">
+            <div id="btnClose">
+                <span> Game Over </span>
+                <a href="/game" >
+                    <span class="close">&times;
+                    </span>
+                </a>
+            </div>
+            <div id="results">
+                <div>Number of UFOs: <span id="ufoNumber">{{nUfos}}</span></div>
+                <div>Time (seconds): <span id="timeSeconds">{{countdownTime}}s</span></div>
+                <div>Puntuation: <span id="puntuation">{{puntuation}}</span></div>
+                <a (click) = "saveScore()" href="/login" *ngIf="!isLogged">LogIn to save your score</a>
+            </div>
+        </div>
+    </div>
+
+    <div #gameContainer id="game-container" *ngIf="gameContainerVisible">
+        <img #missile id='missile' class="blink" [ngClass]="blinkAnimation" src='../../assets/imgs/missile.png' />
+        <img #explosion id="explosion" src="../../assets/imgs/explosion.gif">
+        <div class="ufos-container">
+                <img *ngFor="let item of ufosVisible" #ufo id="ufo" src="../../assets/imgs/ufo.png">
+        </div>
+        <div id="timeAndPoints">
+            <div class="clock-box">
+                <div class="clock-wrap">  
+                    <span id="count" class="count">{{time}}</span>
+                </div>
+                <div class="clock-back" id="clock-back">
+                </div>
+            </div>
+            <div id='points'>{{score}}</div>
+        </div>
+        <div *ngIf="background">
+            <div *ngFor="let item of [].constructor(25); index as i" class="star" [style]="randomLeftPosition(i)"></div>
+        </div>
+    </div>
+</div>

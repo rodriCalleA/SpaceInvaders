@@ -1,0 +1,62 @@
+<div id="container">
+  <div id="toast">
+    <div id="toastIcon"></div>
+    <div id="toastText"></div>
+  </div>
+
+  <div class="modal-content" id="loading-message">
+    <span class="loader"> </span>
+    <span> Loading... </span>
+  </div>
+
+  <div class="wrapper">
+    <div id="btnClose">
+      <header>Register</header>
+      <a href="/game">
+        <span class="close">&times; </span>
+      </a>
+    </div>
+    <form (ngSubmit)="onSubmit()">
+      <div class="field userName" [ngClass]="userFieldClass" >
+        <div class="input-area">
+          <input type="text" [(ngModel)] = "userName" (ngModelChange)="checkUser($event)" name="userName" placeholder="User Name" />
+          <i class="icon fas fa-envelope"></i>
+          <i class="error error-icon fas fa-exclamation-circle"></i>
+        </div>
+        <div class="error error-txt">{{userErrorText}}</div>
+      </div>
+      <div class="field email" [ngClass]="emailFieldClass" >
+        <div class="input-area">
+          <input type="text" [(ngModel)] = "email" (ngModelChange)="checkEmail($event)" name="email" placeholder="Email" />
+          <i class="icon fas fa-envelope"></i>
+          <i class="error error-icon fas fa-exclamation-circle"></i>
+        </div>
+      </div>
+      <div class="error error-txt">{{emailErrorText}}</div>
+      <div class="field password" [ngClass]="passwordFieldClass">
+        <div class="input-area">
+          <input type="password" [(ngModel)] = "password"  (ngModelChange)="checkPassword($event)"  name="password" placeholder="Password" />
+          <i class="icon fas fa-lock"></i>
+          <i class="error error-icon fas fa-exclamation-circle"></i>
+        </div>
+        <div class="error error-txt">Password can't be blank</div>
+      </div>
+      <div class="field password" [ngClass]="passwordFieldClass">
+        <div class="input-area">
+          <input type="password" [(ngModel)] = "repassword"  (ngModelChange)="checkPassword($event)"  name="repassword" placeholder="Repeat Password" />
+          <i class="icon fas fa-lock"></i>
+          <i class="error error-icon fas fa-exclamation-circle"></i>
+        </div>
+        <div class="error error-txt">Password must be the same</div>
+      </div>
+      <button type="submit" value="Login" class="button-82-pushable">
+        <span class="button-82-shadow"></span>
+        <span class="button-82-edge"></span>
+        <span id="bntSaveTEXT" class="button-82-front text"> Register </span>
+      </button>
+    </form>
+    <div class="sign-txt">
+      Are you a member? <a href="/login">Signup now</a>
+    </div>
+  </div>
+</div>

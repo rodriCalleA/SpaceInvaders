@@ -1,0 +1,78 @@
+<div class="container">
+  <app-loading-dialog *ngIf="loading" />
+
+  <app-confirmation-dialog
+    *ngIf="confirmationDialogVisible"
+    title="Delete Records"
+    message="Are you sure you want to delete your records?"
+    (eventResponse)="confirmationDialogEvent($event)"
+  ></app-confirmation-dialog>
+
+  <div *ngIf="!loading" id="myModal" class="modal">
+    <div class="modal-content">
+      <div id="btnClose">
+        <span> Records </span>
+        <a href="/game">
+          <span class="close">&times; </span>
+        </a>
+      </div>
+      <h3>General Records</h3>
+      <table id="data-table">
+        <thead>
+          <tr>
+            <th>Username</th>
+            <th>Puntuation</th>
+            <th>UFOs</th>
+            <th>Disposed Time</th>
+            <th>Record Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let record of globalRecords">
+            <td>{{ record.username }}</td>
+            <td>{{ record.punctuation }}</td>
+            <td>{{ record.ufos }}</td>
+            <td>{{ record.disposedTime }}</td>
+            <td>{{ record.recordDate.toLocaleDateString() }}</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="no-logged" *ngIf="!username">
+        <a href="/login">Login to see your records</a>
+      </div>
+      <div class="logged" *ngIf="username">
+        <h3>{{ username }}'s Records</h3>
+        <div *ngIf="!userRecords" class="not-found">
+          <p>No records found</p>
+        </div>
+        <table id="data-table" *ngIf="userRecords">
+          <thead>
+            <tr>
+              <th>Username</th>
+              <th>Puntuation</th>
+              <th>UFOs</th>
+              <th>Disposed Time</th>
+              <th>Record Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let record of userRecords">
+              <td>{{ record.username }}</td>
+              <td>{{ record.punctuation }}</td>
+              <td>{{ record.ufos }}</td>
+              <td>{{ record.disposedTime }}</td>
+              <td>{{ record.recordDate.toLocaleDateString() }}</td>
+            </tr>
+          </tbody>
+        </table>
+        <button (click)="showConfirmationDialog()" class="button-82-pushable">
+          <span class="button-82-shadow"></span>
+          <span class="button-82-edge"></span>
+          <span id="bntSaveTEXT" class="button-82-front text">
+            Delete Records
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

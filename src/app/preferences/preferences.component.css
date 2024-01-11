@@ -1,0 +1,41 @@
+:host {
+  display: block;
+}
+
+/* Estilos del modal omitidos para mantener la simplicidad. Puedes personalizarlos según tus necesidades. */
+body {
+  font-family: 'Arial', sans-serif;
+  font-size: larger;
+  background-color: #000;
+  color: #fff;
+  text-align: center;
+}
+
+body,
+html {
+  margin: 0;
+}
+
+.item {
+  width: 100%;
+  margin: 5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  direction: column;
+}
+
+.footer {
+  margin-top: 2%;
+}
+
+.items {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 5%;
+}
+
+label {
+  margin-right: 10px;
+}

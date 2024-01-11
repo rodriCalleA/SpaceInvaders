@@ -1,0 +1,355 @@
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #000;
+  color: #fff;
+  text-align: center;
+  animation: fadeIn 0.5s forwards;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+body,
+html {
+  height: 100%;
+  margin: 0;
+}
+
+#results > a {
+  color: #fff;
+  font-size: small;
+  margin: 10px;
+  align-self: center;
+}
+
+h1 {
+  font-size: 2em;
+  margin-bottom: 30px;
+}
+
+.startMenu {
+  height: 92%;
+  width: 100%;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  z-index: 5;
+}
+
+.animateFade{
+  animation: fade 1.5s forwards;
+}
+
+.background {
+  position: absolute;
+  width: 100%;
+  height: 92%;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.backgroundIMGInveted {
+  position: absolute;
+  left: 0;
+  top: 2px;
+  width: 100%;
+  z-index: -1;
+}
+
+.animateTop{
+  animation: moveTop 2s forwards;
+}
+
+.animateBottom{
+  animation: moveBottom 2s forwards;
+}
+
+.backgroundIMG {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  transform: translateY(-1);
+  z-index: -1;
+}
+
+.star {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  background-color: #d6d6d6;
+  border-radius: 50%;
+  right: 0px;
+  z-index: 1;
+  top: -10vh;
+  animation: moveStar 7s linear infinite;
+}
+
+body.fade-out {
+  animation: fadeOut 0.5s forwards;
+}
+
+#game-container {
+  display: inline;
+  position: absolute;
+  width: 100%;
+  height: 92%;
+  z-index: 0;
+}
+
+:host ::ng-deep #missile {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  height: 70px;
+  width: 40px;
+  z-index: 10;
+  transition: transform 1s ease-in-out;
+}
+
+#explosion {
+  position: absolute;
+  display: none;
+  height: 70px;
+}
+
+.ufos-container {
+  top: 0;
+  left: 0;
+  position: absolute;
+  width: 100%;
+  height: 92%;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.ufos-container > img{
+  animation: moveUfo 5.4s linear infinite;
+}
+
+.ufos-container > :nth-child(1){
+  animation: moveUfo 5.2s linear infinite;
+}
+
+.ufos-container > :nth-child(2){
+  animation: moveUfoInverted 5.5s linear infinite;
+}
+
+.ufos-container > :nth-child(3){
+  animation: moveUfo 5.8s linear infinite;
+}
+
+.ufos-container > :nth-child(4){
+  animation: moveUfoInverted 5s linear infinite;
+}
+
+.ufos-container > :nth-child(5){
+  animation: moveUfo 6s linear infinite;
+}
+
+#ufo {
+  position: relative;
+  margin-top: 10px;
+  width: 60px;
+  height: 60px;
+}
+
+#timeAndPoints {
+  display: flex;
+  position: absolute;
+  width: fit-content;
+  height: fit-content;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  bottom: 15px;
+  right: 15px;
+}
+
+#points {
+  min-width: 60px;
+  width: fit-content;
+  height: fit-content;
+  background-color: rgb(0, 0, 0);
+  color: white;
+  border-radius: 10px;
+  border: red solid 2px;
+  box-shadow: #fff 0px 0px 10px;
+  text-align: center;
+  font-size: 18pt;
+  padding: 20px;
+}
+
+.modal {
+  z-index: 6;
+}
+
+.modal-content {
+  z-index: 6;
+  width: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-content>#results>div {
+  margin: 10px;
+}
+
+.clock-box {
+  width: 95%;
+  height: 30px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.clock-wrap {
+  position: absolute;
+  height: 30px;
+  width: 100%;
+  border-radius: 10px;
+  border: red solid 2px;
+  background-color: rgba(0, 0, 0, 0);
+  box-shadow: white 0px 0px 10px;
+  display: flex;
+  align-items: center;
+  font-size: large;
+  z-index: 3;
+}
+
+.clock-back {
+  position: relative;
+  height: 100%;
+  width: 0%;
+  border-radius: 10px;
+  background-color: rgb(134, 134, 134);
+  transition: width 1s ease;
+  z-index: 2;
+}
+
+#count {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  z-index: 3;
+}
+
+#gameOver{
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  z-index: 6;
+}
+
+
+@keyframes moveStar {
+  from {
+      transform: translateY(-5vh);
+  }
+
+  to {
+      transform: translateY(105vh);
+  }
+}
+
+@keyframes moveTop {
+  0% {
+      transform: translateY(0);
+  }
+
+  100% {
+      transform: translateY(-150%);
+  }
+}
+
+@keyframes moveBottom {
+  0% {
+      transform: translateY(0);
+  }
+
+  100% {
+      transform: translateY(250%);
+  }
+}
+
+@keyframes fade {
+  0% {
+      opacity: 1;
+  }
+
+  100% {
+      opacity: 0;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+      opacity: 1;
+  }
+
+  to {
+      opacity: 0;
+  }
+}
+
+
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+  }
+
+  to {
+      opacity: 1;
+  }
+}
+
+.blink{
+  animation: blink 1s 3;
+}
+
+@keyframes blink {
+
+  0%,
+  100% {
+      opacity: 0;
+  }
+
+  50% {
+      opacity: 1;
+  }
+}
+
+@keyframes moveUfo {
+
+  0%,
+  100% {
+      left: 0;
+  }
+
+  50% {
+      left: calc(100% - 60px);
+  }
+}
+
+@keyframes moveUfoInverted {
+
+  0%,
+  100% {
+      left: 98%;
+  }
+
+  50% {
+      left: 0%;
+  }
+}

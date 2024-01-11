@@ -1,0 +1,41 @@
+<div>
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <div id="btnClose">
+                <span> Preferences </span>
+                <a href="/game">
+                    <span class="close">&times; 
+                    </span>    
+                </a>
+            </div>
+            <div class="items">
+                <div class="item">
+                    <label for="ufoNumber">Number of UFOs:</label>
+                    <select id="ufoNumber" name="ufoNumber" [(ngModel)]="ufoNumber" (change)="onChange()" >
+                        <option [value]="item" *ngFor="let item of ufoNumberOptions">{{item}}</option>
+                    </select>
+                </div>
+                <div class="item">
+                    <label for="timeSeconds">Time (seconds):</label>
+                    <select id="timeSeconds" name="timeSeconds" [(ngModel)]="timeSeconds" (change)="onChange()" >
+                        <option [value]="item" *ngFor="let item of timeSecondsOptions">{{item}}</option>
+                    </select>
+                </div>
+                <div class="item">
+                    <label for="switchBackground">Background:</label>
+                    <label class="switch">
+                        <input id="switchBackground" type="checkbox" [(ngModel)] = "background" (change)="onChange()" >
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+                <div class="item">
+                    <label for="switchSounds">Sounds:</label>
+                    <label class="switch">
+                        <input id="switchSounds" type="checkbox" [(ngModel)] = "sounds" (change)="onChange()" >
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

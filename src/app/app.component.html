@@ -1,0 +1,23 @@
+<header class="container-fluid">
+  <div class="toolbar" role="banner">
+    <div class="navbar" [ngClass]="navBarClass" id="myTopnav">
+        <a (click) ="redirect('')" class="active" >Restart</a>
+        <a (click) ="redirect('preferences')">Preferences</a>
+        <a (click) ="redirect('records')">Records</a>
+        <a (click) ="redirect('register')" *ngIf="!logged" >Register</a>
+        <a (click) ="redirect('login')" *ngIf="!logged" >Login</a>
+        <a (click) ="showConfirmationDialog()" *ngIf="logged" >Logout</a>
+        <a href="javascript:void(0);" class="icon" (click)="navBar()">
+            <i class="fa fa-bars">&#9776;</i>
+        </a>
+    </div>
+  </div>
+</header>
+<app-confirmation-dialog
+*ngIf="confirmationDialogVisible"
+title="Log Out"
+message="Are you sure you want to log out?"
+(eventResponse)="confirmationDialogEvent($event)"
+></app-confirmation-dialog>
+<router-outlet></router-outlet>
+

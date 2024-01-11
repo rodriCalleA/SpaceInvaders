@@ -1,0 +1,95 @@
+body {
+  font-family: 'Arial', sans-serif;
+  font-size: larger;
+  background-color: #000;
+  color: #fff;
+  text-align: center;
+}
+body,
+html {
+  height: 100%;
+  margin: 0;
+}
+
+a {
+  color: #ffffff;
+}
+
+h3 {
+  align-self: center;
+}
+
+.no-logged{
+  width: fit-content;
+  margin: 10px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.logged{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.container {
+  margin-top: 10px;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#myModal{
+  overflow-x: auto;
+  z-index: 1;
+}
+
+#myModal > .modal-content {
+  position: relative;
+  top: 100px;
+  margin-top: 50px;
+  height: fit-content;
+  z-index: 1;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  border: 2px solid #dddddd; 
+}
+
+th,
+td {
+  border: 1px solid #000000;
+  text-align: center;
+  padding: 8px;
+}
+
+th {
+  background-color: #000000;
+  border: 2px solid #dddddd;
+}
+
+tbody > tr:hover {
+  background-color: #dddddd;
+  color: #000000;
+}
+
+.footer {
+  margin-top: 10%;
+}
+
+.not-found {
+  width: 100%;
+  border: #fff solid 2px;
+  display: flex;
+  justify-content: center;
+}
+
+.button-82-pushable{
+  margin-top: 20px;
+}

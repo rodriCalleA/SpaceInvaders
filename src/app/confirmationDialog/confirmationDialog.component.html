@@ -1,0 +1,15 @@
+<div id="myModal" class="modal">
+  <div class="modal-content">
+    <div id="btnClose">
+      <span> {{ title }} </span>
+      <a (click)="sendEvent(null)">
+        <span class="close">&times; </span>
+      </a>
+    </div>
+    <p>{{ message }}</p>
+    <div class="buttons">
+        <button (click)="sendEvent(false)">No</button>
+        <button (click)="sendEvent(true)">Yes</button>
+    </div>
+  </div>
+</div>

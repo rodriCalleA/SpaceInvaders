@@ -1,0 +1,364 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+    animation: fadeIn 0.5s forwards;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body,
+html {
+    height: 100%;
+    margin: 0;
+}
+
+h1 {
+    font-size: 2em;
+    margin-bottom: 30px;
+}
+
+.navbar {
+    overflow: hidden;
+    background-color: rgb(168, 0, 0);
+    box-shadow: 0 1px 2px 2px hsl(0, 0%, 80%);
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+}
+
+.navbar a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    z-index: 10;
+}
+
+.navbar a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.navbar a.active {
+    background-color: rgb(168, 0, 0);
+    color: white;
+}
+
+.navbar .icon {
+    display: none;
+}
+
+@media screen and (max-width: 600px) {
+
+    .navbar a:not(:first-child) {
+        display: none;
+    }
+
+    .navbar a.icon {
+        float: right;
+        display: block;
+    }
+}
+
+@media screen and (max-width: 600px) {
+
+    .navbar {
+        justify-content: space-between;
+    }
+
+    .navbar.responsive {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .navbar.responsive .icon {
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+
+    .navbar.responsive a {
+        float: none;
+        display: block;
+        text-align: left;
+    }
+
+    .navbar.responsive a:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+    }
+
+}
+
+
+.startMenu {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    z-index: 5;
+}
+
+.background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.backgroundIMGInveted {
+    position: absolute;
+    left: 0;
+    top: 50px;
+    width: 100%;
+    z-index: -1;
+}
+
+.backgroundIMG {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    transform: translateY(-1);
+    z-index: -1;
+}
+
+.star {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background-color: #d6d6d6;
+    border-radius: 50%;
+    right: 0px;
+    z-index: 1;
+    animation: moveStar 7s linear infinite;
+}
+
+body.fade-out {
+    animation: fadeOut 0.5s forwards;
+}
+
+
+@keyframes moveStar {
+    from {
+        transform: translateY(-5vh);
+    }
+
+    to {
+        transform: translateY(105vh);
+    }
+}
+
+@keyframes moveTop {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-150%);
+    }
+}
+
+@keyframes moveBottom {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(250%);
+    }
+}
+
+@keyframes fade {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+@keyframes moveUfo {
+
+    0%,
+    100% {
+        left: 0;
+    }
+
+    50% {
+        left: 98%;
+    }
+}
+
+@keyframes moveUfoInverted {
+
+    0%,
+    100% {
+        left: 98%;
+    }
+
+    50% {
+        left: 0%;
+    }
+}
+
+#game-container {
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+#missile {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    height: 70px;
+    width: 40px;
+    transition: transform 1s ease-in-out;
+    z-index: 10;
+}
+
+#explosion {
+    position: absolute;
+    display: none;
+    height: 70px;
+}
+
+#ufo {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    top: 50px;
+    transition: transform 1s ease-in-out;
+}
+
+#timeAndPoints {
+    display: none;
+    position: absolute;
+    width: fit-content;
+    height: fit-content;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    bottom: 15px;
+    right: 15px;
+}
+
+#points {
+    min-width: 60px;
+    width: fit-content;
+    height: fit-content;
+    background-color: rgb(0, 0, 0);
+    color: white;
+    border-radius: 10px;
+    border: red solid 2px;
+    box-shadow: #fff 0px 0px 10px;
+    text-align: center;
+    font-size: 18pt;
+    padding: 20px;
+}
+
+.modal {
+    display: none;
+    z-index: 6;
+}
+
+.modal-content {
+    z-index: 6;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-content>#results>div {
+    margin: 10px;
+}
+
+.clock-box {
+    width: 95%;
+    height: 30px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.clock-wrap {
+    position: absolute;
+    height: 30px;
+    width: 100%;
+    border-radius: 10px;
+    border: red solid 2px;
+    background-color: rgba(0, 0, 0, 0);
+    box-shadow: white 0px 0px 10px;
+    display: flex;
+    align-items: center;
+    font-size: large;
+    z-index: 3;
+}
+
+.clock-back {
+    position: relative;
+    height: 100%;
+    width: 0%;
+    border-radius: 10px;
+    background-color: rgb(134, 134, 134);
+    transition: width 1s ease;
+    z-index: 2;
+}
+
+#count {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 3;
+}
